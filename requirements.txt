@@ -1,0 +1,17 @@
+# 核心依赖
+playwright>=1.40.0
+beautifulsoup4>=4.12.0
+httpx>=0.25.0
+python-dotenv>=1.0.0
+pyyaml>=6.0
+notion-client>=2.2.1
+
+# 可选依赖
+asyncio
+pathlib
+glob
+json
+os
+re
+datetime
+typing
