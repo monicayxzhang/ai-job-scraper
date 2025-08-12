@@ -1,0 +1,51 @@
+# Job Agent MVP Configuration Template
+# Copy this file to config.yaml and customize for your environment
+
+filter:
+  # Target cities for job search
+  location_keywords: 
+    - "Beijing"
+    - "Shanghai"
+    - "Shenzhen"
+    - "Hangzhou"
+    - "Remote"
+  
+  # Minimum monthly salary (RMB)
+  min_salary: 25000
+  
+  # Maximum years of experience required
+  max_experience: 8
+  
+  # Required technical keywords
+  required_keywords:
+    - "LLM"
+    - "Machine Learning"
+    - "Deep Learning"
+    - "AI"
+    - "NLP"
+
+crawler:
+  # Maximum pages to crawl per session
+  max_pages: 3
+  
+  # Number of concurrent crawling tasks
+  concurrent_limit: 3
+  
+  # Delay between requests (seconds)
+  request_delay: 1.0
+  
+  # Maximum retry attempts
+  max_retries: 3
+
+llm:
+  # LLM model to use
+  model: "gpt-4o-mini"
+  
+  # Temperature for LLM responses (0-1)
+  temperature: 0
+  
+  # Maximum tokens per response
+  max_tokens: 500
+
+# Note: Additional configuration like API keys should be set in .env file
+# See .env.example for environment variable configuration

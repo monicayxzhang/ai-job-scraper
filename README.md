@@ -76,6 +76,7 @@ crawler:
   max_pages: 3
   concurrent_limit: 3
   request_delay: 1.0
+  max_jobs_test: 3          # Test mode: limit jobs per page (remove for production)
 
 llm:
   model: "gpt-4o-mini"
@@ -98,6 +99,12 @@ python integrated_pipeline_with_filters.py --skip-crawl --log-level debug
 3. **Run without filters**
 ```bash
 python integrated_pipeline_with_filters.py --no-filters
+```
+
+4. **Test mode (limit job processing)**
+```bash
+# Edit config.yaml to include max_jobs_test: 3
+python integrated_pipeline_with_filters.py
 ```
 
 ## 📖 User Guide
@@ -145,6 +152,33 @@ Supports multi-layer deduplication:
 - **Data Snapshots**: Auto-save intermediate results for each processing step
 - **Logging System**: Multi-level log output support
 - **Error Tracking**: Detailed error messages and stack traces
+- **Test Mode**: Limit job processing for development and testing
+
+### Test Mode Configuration
+
+The system supports a **test mode** for development and debugging:
+
+#### 🧪 **Enable Test Mode:**
+Add `max_jobs_test` to your `src/config.yaml`:
+```yaml
+crawler:
+  max_pages: 3
+  max_jobs_test: 3    # Process only 3 jobs per page
+```
+
+#### 🚀 **Production Mode:**
+Remove or comment out the `max_jobs_test` parameter:
+```yaml
+crawler:
+  max_pages: 3
+  # max_jobs_test: 3  # Commented out = process all jobs
+```
+
+**Test mode benefits:**
+- ✅ Faster development cycles
+- ✅ Reduced API costs during testing
+- ✅ Easier debugging with smaller datasets
+- ✅ Quick pipeline validation
 
 ## 📁 Project Structure
 
